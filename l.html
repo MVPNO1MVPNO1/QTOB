@@ -1,62 +1,86 @@
-<!DOCTYPE html>   
-<html>   
-<head>  
-<meta name="viewport" content="width=device-width, initial-scale=1">  
-<title> Login Page </title>  
-<style>   
-Body {  
-  font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
-}  
-button {   
-       background-color: #4CAF50;   
-       width: 100%;  
-        color: orange;   
-        padding: 15px;   
-        margin: 10px 0px;   
-        border: none;   
-        cursor: pointer;   
-         }   
- form {   
-        border: 3px solid #f1f1f1;   
-    }   
- input[type=text], input[type=password] {   
-        width: 100%;   
-        margin: 8px 0;  
-        padding: 12px 20px;   
-        display: inline-block;   
-        border: 2px solid green;   
-        box-sizing: border-box;   
-    }  
- button:hover {   
-        opacity: 0.7;   
-    }   
-  .cancelbtn {   
-        width: auto;   
-        padding: 10px 18px;  
-        margin: 10px 5px;  
-    }   
-        
-     
- .container {   
-        padding: 25px;   
-        background-color: lightblue;  
-    }   
-</style>   
-</head>    
-<body>    
-    <center> <h1> Student Login Form </h1> </center>   
-    <form>  
-        <div class="container">   
-            <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="username" required>  
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required>  
-            <button type="submit">Login</button>   
-            <input type="checkbox" checked="checked"> Remember me   
-            <button type="button" class="cancelbtn"> Cancel</button>   
-            Forgot <a href="#"> password? </a>   
-        </div>   
-    </form>     
-</body>     
-</html>  
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local GuiOpenCloseYTB = Instance.new("ScreenGui")
+local Button = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Frame = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+GuiOpenCloseYTB.Name = "Gui OpenClose YTB"
+GuiOpenCloseYTB.Parent = game.Workspace
+GuiOpenCloseYTB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Button.Name = "Button"
+Button.Parent = GuiOpenCloseYTB
+Button.AnchorPoint = Vector2.new(0.5, 0)
+Button.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Button.Position = UDim2.new(0.202689573, 0, 0.165289253, 0)
+Button.Size = UDim2.new(0, 45, 0, 45)
+
+UICorner.Parent = Button
+
+TextButton.Parent = Button
+TextButton.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+TextButton.Position = UDim2.new(0.489899367, 0, 0.478014618, 0)
+TextButton.Size = UDim2.new(0, 45, 0, 45)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = ""
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
+UICorner_2.Parent = TextButton
+
+Frame.Parent = GuiOpenCloseYTB
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Frame.Position = UDim2.new(0.524708331, 0, 0.5, 0)
+Frame.Size = UDim2.new(0, 561, 0, 350)
+
+UICorner_3.CornerRadius = UDim.new(0, 20)
+UICorner_3.Parent = Frame
+
+TextLabel.Parent = Frame
+TextLabel.AnchorPoint = Vector2.new(0.5, 0)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.5, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "MVPNO9MVPNO9"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+-- Scripts:
+
+local function ICIN_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local frame = script.Parent.Parent.Parent.Frame
+	
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if frame.Visible == false then
+			game.Lighting.Blur.Enabled = true
+			frame.Position = UDim2.new(0.5, 0, 1, 0)
+			frame.Visible = true
+			frame:TweenPosition(UDim2.new(0.5, 0, 0.5, 0),"Out","Back",0.3)
+		else
+			frame:TweenPosition(UDim2.new(0.5, 0, 1, 0),"In","Back",0.3)
+			wait(0.3)
+			game.Lighting.Blur.Enabled = false
+			frame.Visible = false
+		end
+	end)
+end
+coroutine.wrap(ICIN_fake_script)()
