@@ -4510,7 +4510,8 @@ task.spawn(C_4e);
 local function C_51()
 	local script = AZY["51"];
 	script.Parent.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+getgenv().Key = "Bash"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex",true))()
 	end)
 end;
 task.spawn(C_51);
